@@ -4,10 +4,10 @@ services:
   iri:
     container_name: iota_iri
     # Use the "build" section instead of "image" if you want to build the docker container on your own
-    image: muxxer/rock64_iota_iri:latest
-    #build:
-    #  context: ./dockerfiles
-    #  dockerfile: Dockerfile_iri
+    #image: muxxer/rock64_iota_iri:latest
+    build:
+      context: ./dockerfiles
+      dockerfile: Dockerfile_iri
     hostname: iri
     restart: unless-stopped
     volumes:
