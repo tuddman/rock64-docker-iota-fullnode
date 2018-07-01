@@ -27,12 +27,13 @@ services:
               #"-Xmx8G",
               "-Xms256m",
               #"-Xms2G",
-              "-Dlogback.configurationFile=/iri/conf/logback.xml",
               "-Djava.net.preferIPv4Stack=true",
               "-jar",
               "iri.jar",
               "-c",
-              "/iri/iota.ini"
+              "/iri/iota.ini",
+              "--port",
+              "$API_PORT"
               ]
     ports:
       - "14600:14600/udp"

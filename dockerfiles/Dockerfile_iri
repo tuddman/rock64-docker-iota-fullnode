@@ -51,6 +51,17 @@ RUN mvn -q package
 
 FROM openjdk:jre-slim
 ARG IRI_VERSION
+
+# Allow change of ports in the container.
+ENV API_PORT 14265
+ENV UDP_PORT 14600
+ENV TCP_PORT 15600
+
+# Mark ports for expose
+EXPOSE $API_PORT
+EXPOSE $UDP_PORT/UDP
+EXPOSE $TCP_PORT
+
 WORKDIR /iri
 COPY --from=builder /iri-aarch64/iri/target/iri-${IRI_VERSION}.jar iri.jar
 # COPY --from=builder /iri-aarch64/iri/logback.xml /iri
